@@ -1,0 +1,30 @@
+<!doctype html>
+<html>
+	<head>
+		<title>what is scope</title>
+		<script src="http://ajax.googleapis.com/ajax/libs/angularjs/1.3.10/angular.min.js"></script>
+		<script src="app.js"></script>
+	</head>
+
+	<!-- 
+		ng-app and ng-init directives can also be used in the html tag
+		ng-init places values inside $scope (best to do it in js code)
+	-->
+	<body ng-app="app" ng-controller="controller" ng-init="var i = 0;">
+		<!-- 
+			html input tag: http://www.w3schools.com/tags/tag_input.asp 
+			bind $scope.i to theinput value
+			call getName() when input value changes; other directives that can be used include
+				ngClick, ngKeypress, etc.
+		-->
+		<input type="text" ng-model="i" ng-change="getName()"/>
+		<br>
+		<p>name #{{ i }}</p>
+		<br>
+		<p>{{ names[i] }}</p>
+		<br>
+		<h1>all the names</h1>
+		<li ng-repeat="name in names">{{ name }}</li>
+	</body>
+</html>
+
