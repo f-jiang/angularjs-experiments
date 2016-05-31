@@ -1,0 +1,45 @@
+<!doctype html>
+<html>
+	<head>
+		<title></title>
+		<script src="http://ajax.googleapis.com/ajax/libs/angularjs/1.3.10/angular.min.js"></script>
+		<script src="app.js"></script>
+	</head>
+
+	<body ng-app="taskApp" ng-controller="taskController">
+        <h3>Your Tasks</h3>
+        <table>
+            <thead>
+                <tr>
+                    <th>Task</th>
+                    <th>Due Date</th>
+                    <th>Priority</th>
+                    <th>Complete?</th>
+                </tr>
+            </thead>
+            <tr ng-repeat="task in tasks">
+                <td>{{ task.name }}</td>
+                <td>{{ task.dueDate }}</td>
+                <td>{{ task.priority }}</td>
+                <td>
+                    <input type="checkbox" ng-model="task.complete" />
+                </td>
+            </tr>
+        </table>
+        <br>
+        <h3>Add a New Task</h3>
+        <form name="taskForm" ng-submit="addTask(task)">
+            <label>Name:</label>
+            <input type="text" name="name" ngModel="task.name" ng-required="true" />
+            <br>
+            <label>Due Date:</label>
+            <input type="date" name="dueDate" ngModel="task.dueDate" ng-required="true" />
+            <br>
+            <label>Priority:</label>
+            <input type="number" name="priority" ngModel="task.priority" ng-required="false" />
+            <br>
+            <input type="submit" value="Add" ng-disabled="taskForm.$invalid" />
+        </form>
+	</body>
+</html>
+

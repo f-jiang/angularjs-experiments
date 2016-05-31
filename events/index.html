@@ -1,0 +1,22 @@
+<!doctype html>
+<html>
+	<head>
+		<title>Mouse Events</title>
+		<script src="http://ajax.googleapis.com/ajax/libs/angularjs/1.3.10/angular.min.js"></script>
+		<script src="app.js"></script>
+	</head>
+
+	<body ng-app="app" ng-controller="controller">
+            <div align="center" style="width:100vw; height:100vh"
+            ng-mousemove="moved = moved + 1"
+            ng-mouseenter="entered = entered + 1"
+            ng-mouseleave="left = left + 1"
+            ng-mousedown="down = down + 1">
+                <h3>Mouse moved {{ moved }} times</h3>
+                <h3>Mouse entered {{ entered }} times</h3>
+                <h3>Mouse left {{ left }} times</h3>
+                <h3>Mouse down {{ down }} times</h3>
+            </div>                
+	</body>
+</html>
+

@@ -21,12 +21,16 @@
 		-->
 		<input type="text" ng-model="i" ng-change="getName()"/>
 		<br>
+		
+		<!-- two ways -->
 		<p>name #{{ i }}</p>
+		<p>name #<span ng-bind="i"></span></p>
+		
 		<br>
 		<p>{{ names[i] }}</p>
 		<br>
 		<h1>all the names</h1>
-		<li ng-repeat="name in names">{{ name }}</li>
+		<li ng-repeat="name in names">{{ $index }} {{ name }}</li>
 	</body>
 </html>
 
