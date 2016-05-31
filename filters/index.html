@@ -4,6 +4,9 @@
 		<title></title>
 		<script src="http://ajax.googleapis.com/ajax/libs/angularjs/1.3.10/angular.min.js"></script>
 		<script src="app.js"></script>
+        
+        <!-- getting the custom filter -->
+        <script src="filters.js"></script>
 	</head>
 
 	<body ng-app="app" ng-controller="controller">
@@ -13,6 +16,15 @@
                 The {{ phone.name }} was released in {{ phone.year }}
             </li>
         </ul>
+        
+<!--
+         custom filters are defined in js code, which must be included as script 
+-->
+        <ul>
+            <li ng-repeat="restaurant in restaurants | filter: name | orderBy:'-distance'">
+                {{ restaurant.name }}: {{ restaurant.distance }} km away        {{ restaurant.hours | open }}
+            </li>
+        </ul>        
 	</body>
 </html>
 
